@@ -1,0 +1,671 @@
+.dsn {
+  --color-bg: #161826;
+  --color-surface: #232532;
+  --color-text: #e9e9ed;
+  --color-accent: #34c2b8;
+  --color-accent-2: #5fcabf;
+  --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+
+  --color-neutral-100: #f3f5fe;
+  --color-neutral-200: #e4e7f5;
+  --color-neutral-300: #cfd3e5;
+  --color-neutral-400: #b2b6ca;
+  --color-neutral-500: #9397ab;
+  --color-neutral-600: #75798c;
+  --color-neutral-700: #595d6c;
+  --color-neutral-800: #3f424d;
+  --color-neutral-900: #292b31;
+
+  --color-accent-100: #e7faf7;
+  --color-accent-200: #c2f0eb;
+  --color-accent-300: #94e2da;
+  --color-accent-400: #54cfc5;
+  --color-accent-500: #33b7ad;
+  --color-accent-600: #2a938c;
+  --color-accent-700: #24716c;
+  --color-accent-800: #22534f;
+  --color-accent-900: #1d3a38;
+
+  --color-accent-2-100: #e7faf7;
+  --color-accent-2-200: #c2f0eb;
+  --color-accent-2-300: #94e2da;
+  --color-accent-2-400: #58ccc3;
+  --color-accent-2-500: #37b0a8;
+  --color-accent-2-600: #2d8d88;
+  --color-accent-2-700: #266d69;
+  --color-accent-2-800: #224f4d;
+  --color-accent-2-900: #1d3937;
+
+  --color-section: #262a60;
+  --color-section-glow: #353b80;
+  --color-section-ghost: #4c5397;
+
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-heading-weight: 500;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* ── Spacing scale ────────────────────────────────────────────────────
+     4 / 8 / 12 / 16 / 24 / 32. Previously a 1.4-ratio scale of fractional
+     pixels (2.8 / 5.6 / 8.4 / 11.2 / 16.8 / 22.4), which no inline style
+     could match — every hand-written padding in the app was therefore off
+     the scale by construction. Integers make the scale usable from both
+     CSS and the inline styles the screens are built from. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  /* Micro-tier, for gaps INSIDE a single line of content (icon + label,
+     number + unit) rather than between blocks. Kept as a named exception
+     so 2px and 6px read as deliberate instead of as scale drift — .btn and
+     .seg-opt already relied on the 6px value. */
+  --space-hair: 2px;
+  --space-inline: 6px;
+
+  /* ── Type scale ───────────────────────────────────────────────────────
+     One size per role. The screens had drifted onto half-steps (9.5, 10.5,
+     11.5, 12.5, 13.5) that read as noise rather than hierarchy. */
+  --text-2xs: 10px; /* section labels / kickers / micro-meta */
+  --text-xs: 11px; /* captions, chip text */
+  --text-sm: 12px; /* secondary body, table meta */
+  --text-base: 13px; /* body, nav items, table rows */
+  --text-md: 14px; /* emphasised body */
+  --text-lg: 16px; /* card titles */
+  --text-xl: 19px; /* page titles, brand */
+  --text-stat: 21px; /* funnel / KPI tile numbers */
+  --text-2xl: 26px; /* large stat readouts */
+  --text-display: 32px;
+
+  /* ── Radius scale ─────────────────────────────────────────────────────
+     2 / 4 / 6 / 8 / 12. Screens had 2,3,4,5,6,7,10,11,12,20 in play. */
+  --radius-xs: 2px; /* progress bars, rails */
+  --radius-sm: 4px; /* small inline marks */
+  --radius-chip: 6px; /* chips, badges, tags */
+  --radius-md: 8px; /* cards, inputs, buttons */
+  --radius-lg: 12px; /* large containers, modals */
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 0 0 1px #3f424d;
+  --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+.dsn {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+.dsn h1,
+.dsn h2,
+.dsn h3,
+.dsn h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+}
+.dsn .lighten {
+  mix-blend-mode: lighten;
+  background-color: transparent;
+}
+.dsn *,
+.dsn *::before,
+.dsn *::after {
+  box-sizing: border-box;
+}
+.dsn {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+.dsn h1,
+.dsn h2,
+.dsn h3,
+.dsn h4,
+.dsn h5,
+.dsn h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--space-2);
+}
+.dsn h1 {
+  font-size: 42px;
+}
+.dsn h2 {
+  font-size: 32px;
+}
+.dsn h3 {
+  font-size: 25px;
+}
+.dsn h4 {
+  font-size: 20px;
+}
+.dsn h5 {
+  font-size: 16px;
+}
+.dsn h6 {
+  font-size: 13px;
+}
+.dsn h6 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dsn p {
+  margin: 0 0 var(--space-3);
+}
+.dsn a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+.dsn img {
+  display: block;
+  max-width: 100%;
+}
+.dsn figure {
+  margin: 0;
+}
+.dsn figcaption {
+  font-size: 11px;
+  margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.dsn .text-muted {
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.dsn :focus {
+  outline: none;
+}
+.dsn :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.dsn ::selection {
+  background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+.dsn .hr {
+  height: 1px;
+  border: 0;
+  margin: var(--space-4) 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-divider) 48px,
+    var(--color-divider) calc(100% - 48px),
+    transparent
+  );
+}
+.dsn .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+}
+.dsn .btn svg {
+  display: block;
+}
+.dsn .btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.dsn .btn-primary {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.dsn .btn-primary:hover {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+}
+.dsn .btn-primary:active {
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+.dsn .btn-secondary {
+  border-color: var(--color-divider);
+}
+.dsn .btn-secondary:hover {
+  background: color-mix(in srgb, var(--color-text) 7%, transparent);
+}
+.dsn .btn-secondary:active {
+  background: color-mix(in srgb, var(--color-text) 14%, transparent);
+}
+.dsn .btn-ghost {
+  color: var(--color-accent);
+  padding-inline: var(--space-1);
+}
+.dsn .btn-ghost:hover {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+.dsn .btn-ghost:active {
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+.dsn .btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+.dsn .btn-block {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+.dsn .field > label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.dsn .input {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+}
+.dsn .input:hover {
+  border-color: color-mix(in srgb, var(--color-text) 45%, transparent);
+}
+.dsn .input:focus-visible {
+  border-color: var(--color-accent);
+  outline-offset: 0;
+}
+.dsn textarea.input {
+  min-height: 90px;
+  resize: vertical;
+}
+.dsn .radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.dsn .radio input,
+.dsn .seg-opt input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.dsn .radio .dot {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.dsn .radio:hover .dot {
+  border-color: var(--color-accent);
+}
+.dsn .radio input:checked + .dot {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.dsn .radio input:focus-visible + .dot {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+/* ── Segmented control ──────────────────────────────────────────────────
+   One language for every two-or-three-way choice: hard gates, the conflict
+   prompt, and the mandate form's archetype / priority.
+
+   Selection state is driven by aria-checked so the markup can be plain
+   <button role="radio"> elements. The rules below also keep the older
+   :has(input:checked) form working for any hidden-radio markup. Previously
+   ONLY the input form was styled, so the button-based gates rendered as
+   bare text — transparent, borderless, no hover and no focus ring — and an
+   analyst had no signal they were interactive at all. */
+.dsn .seg {
+  display: inline-flex;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+}
+/* Full-width variant — the track stretches and the options split it. */
+.dsn .seg-block {
+  display: flex;
+  width: 100%;
+}
+.dsn .seg-opt {
+  /* flex-basis 0 with equal grow keeps both options the same width, so the
+     divider doesn't shift when "Pass" swaps to the wider "Fail". */
+  flex: 1 1 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  text-align: center;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--color-text) 58%, transparent);
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+}
+.dsn .seg-opt + .seg-opt {
+  border-left: 1px solid var(--color-divider);
+}
+.dsn .seg-opt:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+/* Selected — filled, not just tinted text. */
+.dsn .seg-opt[aria-checked="true"],
+.dsn .seg-opt[data-checked="true"],
+.dsn .seg-opt:has(input:checked) {
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  color: var(--color-accent-100);
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+/* Hover only lifts the UNSELECTED options — the chosen one already reads. */
+.dsn
+  .seg-opt:not([aria-checked="true"]):not([data-checked="true"]):not(:has(input:checked)):hover:not(
+    :disabled
+  ) {
+  background: color-mix(in srgb, var(--color-text) 9%, transparent);
+  color: var(--color-text);
+}
+.dsn .seg-opt:focus-visible,
+.dsn .seg-opt:has(input:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  position: relative;
+  z-index: 1;
+}
+.dsn .card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.dsn .card-kicker {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.dsn .card-title {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 17px;
+  line-height: 1.2;
+}
+.dsn .card-body {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+  flex: 1;
+}
+.dsn .card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.dsn .elev-sm {
+  box-shadow: var(--shadow-sm);
+}
+.dsn .elev-md {
+  box-shadow: var(--shadow-md);
+}
+.dsn .elev-lg {
+  box-shadow: var(--shadow-lg);
+}
+.dsn .tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: var(--radius-chip);
+}
+.dsn .tag-accent {
+  background: var(--color-accent-800);
+  color: var(--color-accent-100);
+}
+.dsn .tag-accent-2 {
+  background: var(--color-accent-2-800);
+  color: var(--color-accent-2-100);
+}
+.dsn .tag-neutral {
+  background: var(--color-neutral-800);
+  color: var(--color-neutral-100);
+}
+.dsn .tag-outline {
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+.dsn .nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: none;
+}
+.dsn .nav-brand {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 18px;
+  margin-right: auto;
+}
+.dsn .nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+}
+.dsn .nav a:hover,
+.dsn .nav a[aria-current="page"] {
+  color: var(--color-accent);
+}
+.dsn .table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.dsn .table th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2);
+  border-bottom: 1px solid transparent;
+}
+.dsn .table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid transparent;
+}
+.dsn .table thead tr {
+  background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-divider) 48px,
+      var(--color-divider) calc(100% - 48px),
+      transparent
+    )
+    no-repeat bottom / 100% 1px;
+}
+.dsn .table tbody tr {
+  background: linear-gradient(
+      to right,
+      transparent,
+      color-mix(in srgb, var(--color-text) 8%, transparent) 48px,
+      color-mix(in srgb, var(--color-text) 8%, transparent) calc(100% - 48px),
+      transparent
+    )
+    no-repeat bottom / 100% 1px;
+}
+.dsn .table tbody tr:hover {
+  background:
+    linear-gradient(
+        color-mix(in srgb, var(--color-text) 4%, transparent),
+        color-mix(in srgb, var(--color-text) 4%, transparent)
+      )
+      no-repeat 0 0 / 100% 100%,
+    linear-gradient(
+        to right,
+        transparent,
+        color-mix(in srgb, var(--color-text) 8%, transparent) 48px,
+        color-mix(in srgb, var(--color-text) 8%, transparent) calc(100% - 48px),
+        transparent
+      )
+      no-repeat bottom / 100% 1px;
+}
+.dsn .dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dsn .dialog {
+  width: min(440px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+.dsn .dialog-title {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dsn .dialog-body {
+  font-size: 14px;
+  opacity: 0.85;
+}
+.dsn .dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+@keyframes beacon-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Home — whole-row links. Inline styles can't express :hover, and every
+   row on Home is an anchor by design ("nothing render-only"), so the
+   affordance lives here. */
+.dsn .home-row {
+  transition: background-color 120ms ease;
+}
+.dsn .home-row:hover {
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
+}
+.dsn a.home-quiet-link {
+  color: color-mix(in srgb, var(--color-text) 58%, transparent);
+  text-decoration: none;
+}
+.dsn a.home-quiet-link:hover {
+  color: var(--color-accent);
+}
+
+/* ── Scrollbars ─────────────────────────────────────────────────────────
+   Every scroll container was at the OS default, which paints a light native
+   bar against this dark theme — the brightest thing on the screen, sitting
+   right beside the queue.
+
+   Applied to .dsn and everything inside it, so the queue sidebar, the main
+   panel, and any inner scroll region (findings history, axis lists, the
+   pipeline table) are covered without each one opting in.
+
+   Firefox reads scrollbar-width / scrollbar-color; WebKit and Blink read
+   the ::-webkit-scrollbar rules. Both are declared: the standard properties
+   are inherited, and the ::-webkit pseudo-elements are not, hence the
+   descendant selector. */
+.dsn,
+.dsn * {
+  scrollbar-width: thin;
+  /* thumb, then track */
+  scrollbar-color: var(--color-neutral-700) transparent;
+}
+
+.dsn ::-webkit-scrollbar,
+.dsn::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dsn ::-webkit-scrollbar-track,
+.dsn::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dsn ::-webkit-scrollbar-thumb,
+.dsn::-webkit-scrollbar-thumb {
+  background-color: var(--color-neutral-700);
+  border-radius: 999px;
+  /* Transparent border trims the thumb to ~6px inside a 10px gutter, so it
+     reads as a slim pill rather than a full-width slab. */
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.dsn ::-webkit-scrollbar-thumb:hover,
+.dsn::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-neutral-600);
+}
+
+.dsn ::-webkit-scrollbar-thumb:active,
+.dsn::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-neutral-500);
+}
+
+/* Where both axes overflow, keep the corner from rendering as a pale square. */
+.dsn ::-webkit-scrollbar-corner,
+.dsn::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Workspace nav items — hover belongs in CSS; the rest of the item's state
+   is inline in nav.tsx alongside the active-rail markup. Excludes the
+   current page so hovering the active item doesn't wash out its treatment. */
+.dsn .nav-item {
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+.dsn .nav-item:not([aria-current="page"]):hover {
+  background: color-mix(in srgb, var(--color-text) 7%, transparent);
+  color: var(--color-text);
+}
